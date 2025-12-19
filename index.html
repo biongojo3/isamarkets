@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISA MARKETS - Point of Sale</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>">
+<script>
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-cash-register"></i>
+                <h1>ISA<span>MARKETS</span></h1>
+            </div>
+            <div class="header-info">
+                <div class="date-time" id="dateTime">
+                    <i class="far fa-clock"></i>
+                    <span>...</span>
+                </div>
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Kasir 01</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Sidebar Produk -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fas fa-boxes"></i> Daftar Produk</h2>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchProduct" placeholder="Cari produk...">
+                    </div>
+                </div>
+                
+                <div class="product-list" id="productList">
+                    <!-- Produk akan di-generate oleh JavaScript -->
+                </div>
+                
+                <div class="category-filter">
+                    <h3>Kategori</h3>
+                    <div class="categories">
+                        <button class="category-btn active" data-category="all">Semua</button>
+                        <button class="category-btn" data-category="makanan">Makanan</button>
+                        <button class="category-btn" data-category="minuman">Minuman</button>
+                        <button class="category-btn" data-category="snack">Snack</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Area Transaksi -->
+            <div class="transaction-area">
+                <div class="cart-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h2>
+                        <div class="cart-actions">
+                            <button class="btn btn-secondary" id="clearCart">
+                                <i class="fas fa-trash-alt"></i> Kosongkan
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-table-container">
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th>Produk</th>
+                                    <th>Harga</th>
+                                    <th>Qty</th>
+                                    <th>Subtotal</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartItems">
+                                <!-- Item keranjang akan ditambahkan oleh JavaScript -->
+                                <tr class="empty-cart-message">
+                                    <td colspan="5">Keranjang belanja kosong. Tambahkan produk dari daftar di samping.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Total Item:</span>
+                            <span id="totalItems">0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="summary-row discount-row">
+                            <span>Diskon:</span>
+                            <div class="discount-control">
+                                <button class="btn-discount" id="applyDiscount">-5%</button>
+                                <input type="number" id="discountInput" placeholder="0" min="0" max="100">
+                                <span>%</span>
+                            </div>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total:</span>
+                            <span id="totalAmount">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-credit-card"></i> Pembayaran</h2>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h3>Metode Pembayaran</h3>
+                        <div class="method-options">
+                            <label class="method-option active">
+                                <input type="radio" name="payment" value="cash" checked>
+                                <div class="method-content">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Tunai</span>
+                                </div>
+                            </label>
+                            <label class="method-option">
+                                <input type="radio" name="payment" value="debit">
+                                <div class="method-content">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Kartu Debit</span>
+                                </div>
+                            </label>
+                            <label class="method-option">
+                                <input type="radio" name="payment" value="credit">
+                                <div class="method-content">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Kartu Kredit</span>
+                                </div>
+                            </label>
+                            <label class="method-option">
+                                <input type="radio" name="payment" value="qris">
+                                <div class="method-content">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>QRIS</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-amount">
+                        <div class="input-group">
+                            <label for="amountPaid">Jumlah Bayar</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-wallet"></i>
+                                <input type="number" id="amountPaid" placeholder="Masukkan jumlah bayar" min="0">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="change">Kembalian</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                                <input type="text" id="change" placeholder="0" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-actions">
+                        <button class="btn btn-calculate" id="calculateChange">
+                            <i class="fas fa-calculator"></i> Hitung Kembalian
+                        </button>
+                        <button class="btn btn-success btn-process" id="processPayment">
+                            <i class="fas fa-check-circle"></i> Proses Pembayaran
+                        </button>
+                    </div>
+                    
+                    <div class="receipt-preview">
+                        <h3><i class="fas fa-receipt"></i> Struk Preview</h3>
+                        <div class="receipt" id="receiptContent">
+                            <div class="receipt-header">
+                                <h4>ISA MARKETS</h4>
+                                <p>Jl. Contoh No. 123, Kota Anda</p>
+                                <p>Telp: (021) 123-4567</p>
+                            </div>
+                            <div class="receipt-body">
+                                <div class="receipt-info">
+                                    <p>No. Transaksi: <span id="receiptNo">TRX-001</span></p>
+                                    <p>Tanggal: <span id="receiptDate">...</span></p>
+                                    <p>Kasir: <span>Kasir 01</span></p>
+                                </div>
+                                <hr>
+                                <div class="receipt-items" id="receiptItems">
+                                    <!-- Item struk akan ditambahkan oleh JavaScript -->
+                                    <p class="empty-receipt">Tidak ada item</p>
+                                </div>
+                                <hr>
+                                <div class="receipt-summary">
+                                    <p>Subtotal: <span id="receiptSubtotal">Rp 0</span></p>
+                                    <p>Diskon: <span id="receiptDiscount">0%</span></p>
+                                    <p class="total">TOTAL: <span id="receiptTotal">Rp 0</span></p>
+                                    <p>Bayar: <span id="receiptPaid">Rp 0</span></p>
+                                    <p>Kembali: <span id="receiptChange">Rp 0</span></p>
+                                </div>
+                            </div>
+                            <div class="receipt-footer">
+                                <p>Terima kasih telah berbelanja!</p>
+                                <p>Barang yang sudah dibeli tidak dapat dikembalikan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Struk -->
+        <div class="modal" id="receiptModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Struk Pembayaran</h2>
+                    <button class="close-modal" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="receipt-print" id="receiptPrint">
+                        <!-- Struk untuk dicetak akan diisi oleh JavaScript -->
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-secondary" id="printReceipt">
+                            <i class="fas fa-print"></i> Cetak Struk
+                        </button>
+                        <button class="btn btn-success" id="newTransaction">
+                            <i class="fas fa-plus"></i> Transaksi Baru
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2023 ISA MARKETS - Aplikasi Point of Sale | Dibuat dengan <i class=""></i> untuk kebutuhan kasir sehari-hari</p>
+        </footer>
+    </div>
+<script>
+if (localStorage.getItem("login") !== "true") {
+    window.location.href = "login.html";
+}
+</script>
+<button onclick="logout()">Logout</button>
+
+<script>
+function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+}
+</script>
+<script>
+if (localStorage.getItem("login") !== "true") {
+    window.location.href = "login.html";
+}
+</script>
+<script>
+if (localStorage.getItem("role") !== "admin") {
+    alert("Akses berhasil");
+}
+</script>
+
+<script>
+if (localStorage.getItem("login") !== "true") {
+    window.location.href = "login.html";
+}
+</script>
+
+    <script src="script.js"></script>
+</body>
+</html>

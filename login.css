@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 380px;
+}
+
+.login-card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.login-card h2 {
+    margin: 0;
+    color: #2575fc;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #2575fc;
+}
+
+.agree {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: #555;
+    margin: 15px 0;
+}
+
+.agree a {
+    color: #2575fc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1f63d1;
+}
+
+.hint {
+    font-size: 12px;
+    color: #888;
+    margin-top: 15px;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+/* Dark Mode Button */
+.dark-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* DARK MODE STYLE */
+body.dark {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+}
+
+body.dark .login-card {
+    background: #1f1f1f;
+    color: #eee;
+}
+
+body.dark input {
+    background: #2c2c2c;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+body.dark label,
+body.dark .subtitle,
+body.dark .hint,
+body.dark .agree {
+    color: #bbb;
+}
+
+body.dark button {
+    background: #6a11cb;
+}
+
+body.dark .dark-toggle {
+    background: #333;
+    color: #fff;
+}
+/* Dark Mode Button */
+.dark-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Dark Mode Button */
+.dark-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* DARK MODE STYLE */
+body.dark {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+}
+
+body.dark .login-card {
+    background: #1f1f1f;
+    color: #eee;
+}
+
+body.dark input {
+    background: #2c2c2c;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+body.dark label,
+body.dark .subtitle,
+body.dark .hint,
+body.dark .agree {
+    color: #bbb;
+}
+
+body.dark button {
+    background: #6a11cb;
+}
+
+body.dark .dark-toggle {
+    background: #333;
+    color: #fff;
+}

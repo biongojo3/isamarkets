@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Kasir | ISAMARKETS</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>ISAMARKETS</h2>
+        <p class="subtitle">Login Sistem Kasir</p>
+
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Masukkan username">
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Masukkan password">
+        </div>
+
+        <div class="agree">
+            <input type="checkbox" id="agree">
+            <label for="agree">
+                Saya menyetujui
+                <a href="privacy.html" target="_blank">Privacy Policy</a> dan
+                <a href="terms.html" target="_blank">Terms & Conditions</a>
+            </label>
+        </div>
+
+        <button onclick="login()">LOGIN</button>
+
+        <p class="hint">
+            Username: <b>admin</b><br>
+            Password: <b>admin123</b>
+        </p>
+
+        <p id="error" class="error"></p>
+    </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
